@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -11,6 +12,10 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import com.backend.BitVoyage.domain.User;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Data
 public class PrincipalDetails implements UserDetails, OAuth2User {
@@ -68,4 +73,45 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
     public boolean isEnabled() {
         return true;  // 계정 활성화 여부
     }
+
+//    @Controller
+//    public class LoginController{
+//        private final LoginService login Service;
+//
+//        public LoginController(LoginService loginService){
+//            this.loginService = loginService;
+//        }
+//
+//    @RequestMapping("/login")
+//    public String loginPage(){
+//        return "login";
+//    }
+//        @RequestMapping("/kakao-login")
+//        public String kakaoLoing(@RequestParam(value = "code", required = false)String code){
+//            if(code!=null){
+//                System.out.println("code = " + code);
+//            }
+//            return "redirectPage";
+//        }
+//    }
+//===========================================
+//    #login.html
+//    <html xmlns:th="http://www.thymeleaf.org">
+//    <head>
+//        <meta charset="UTF-8">
+//        <title>Title</title>
+//    </head>
+//    <body>
+//    <a th:href="@{https://kauth.kakao.com/oauth/authorize?client_id=76962c7a6fc66be998adb93c765fc091&rediret_uri=http://localhost:3000/kakao-login&reponse_type=p70nVGMvEeg6oBCmCgGUHSJTLUqX5DZo}">
+//    카카오 로그인
+//    </body>
+//    </html>
+// ======================================
+//   위의 코드를 작성한 링크
+//    https://yanoos.tistory.com/103
+//    ==========================
+//    LoginService.java
+
 }
+
+
